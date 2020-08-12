@@ -88,9 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
       selectedDay = _selectedDate;
       _offset = _itemWidth * _selectedDate.day;
     }
-    setState(() {
-      _scrollController = ScrollController(initialScrollOffset: _offset ?? 0);
-    });
+    _scrollController = ScrollController(initialScrollOffset: _offset ?? 0);
     super.initState();
   }
 
