@@ -77,9 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
     updateTotalDaysInMonth();
     jsonResponse = await DefaultAssetBundle.of(context)
         .loadString("assets/CalendarTask.json");
-    setState(() {
-      calendarData = json.decode(jsonResponse) as Map<String, dynamic>;
-    });
+    calendarData = json.decode(jsonResponse) as Map<String, dynamic>;
+    
   }
 
   @override
@@ -88,7 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
       selectedDay = _selectedDate;
       _offset = _itemWidth * _selectedDate.day;
     }
-    _scrollController = ScrollController(initialScrollOffset: _offset ?? 0);
+    setState(() {
+    _scrollController = ScrollController(initialScrollOffset: _offset ?? 0);  
+    });
     super.initState();
   }
 
